@@ -27,15 +27,56 @@
 </div>
 
 <h3>Contact List</h3>
+<div class="row">
+ <% @contacts.each do |contact| %>
+<div class="col-md-3">
+<div class="panel panel-default">
+  <div class="panel-body profile">
+    <div class="profile-image">
+      <img class="circle" src="assets/user.jpeg">
+    </div>
+    <div class="profile-data">
+      <div class="profile-data-name"><%= contact.fname %> <%= contact.lname %></div>
+      <div class="profile-data-title">Developer</div>
+    </div>
+    <div class="profile-controls">
+      <a href="#" class="profile-control-left">
+        <span class="glyphicon glyphicon-heart"></span>
+      </a>
+      <a href="#" class="profile-control-right">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="contact-info">
+      <p>
+        <small>Mobile:</small>
+        <br />
+        <%= contact.mobile %></p>
+      <p>
+        <small>Email:</small>
+        <br />
+        <%= contact.email %></p>
+        <p><small>Address:</small>
+        <br />
+        <%= contact.address %></p>
+    </div>
+  </div>
+   </div>
+</div>
+  <!--end of col-md-3-->
+  <% end %>
+  </div> <!--end of row-->
 <table>
   <thead>
     <tr>
-      <th>Fname</th>
-      <th>Lname</th>
+      <th>First name</th>
+      <th>Last name</th>
       <th>Address</th>
       <th>Mobile</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -47,9 +88,9 @@
         <td><%= contact.address %></td>
         <td><%= contact.mobile %></td>
         <td><%= contact.email %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><span class="glyphicon glyphicon-zoom-in"></span><%= link_to 'Show', contact %></td>
+        <td><span class="glyphicon glyphicon-pencil"></span><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><span class="glyphicon glyphicon-trash"></span><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
