@@ -17,7 +17,7 @@
            </div>
            <div class="col-md-4">
                <button class="btn btn-success btn-block">
-                   <span class="fa fa-plus"></span>
+                   <span class="glyphicon glyhicon-plus"></span>
                    <%= link_to 'New Contact', new_contact_path %>
                </button> 
            </div>
@@ -30,6 +30,7 @@
 <div class="row">
  <% @contacts.each do |contact| %>
 <div class="col-md-3">
+  <!--contact card-->
 <div class="panel panel-default">
   <div class="panel-body profile">
     <div class="profile-image">
@@ -41,10 +42,12 @@
     </div>
     <div class="profile-controls">
       <a href="#" class="profile-control-left">
-        <span class="glyphicon glyphicon-heart"></span>
+        <span id="favorited" class="glyphicon glyphicon-star-empty"></span>
       </a>
-      <a href="#" class="profile-control-right">
-        <span class="glyphicon glyphicon-pencil"></span>
+      
+      <%= link_to edit_contact_path(contact), class: "profile-control-right" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+      <% end %>
       </a>
     </div>
   </div>
@@ -68,6 +71,9 @@
   <!--end of col-md-3-->
   <% end %>
   </div> <!--end of row-->
+  
+  
+  
 <table>
   <thead>
     <tr>
