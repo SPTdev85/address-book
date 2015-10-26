@@ -42,7 +42,7 @@
     </div>
     <div class="profile-controls">
       <a href="#" class="profile-control-left">
-        <span id="favorited" class="glyphicon glyphicon-star-empty"></span>
+        <span class="glyphicon glyphicon-star"></span>
       </a>
       
       <%= link_to edit_contact_path(contact), class: "profile-control-right" do %>
@@ -71,37 +71,6 @@
   <!--end of col-md-3-->
   <% end %>
   </div> <!--end of row-->
-  
-  
-  
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Address</th>
-      <th>Mobile</th>
-      <th>Email</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.fname %></td>
-        <td><%= contact.lname %></td>
-        <td><%= contact.address %></td>
-        <td><%= contact.mobile %></td>
-        <td><%= contact.email %></td>
-        <td><span class="glyphicon glyphicon-zoom-in"></span><%= link_to 'Show', contact %></td>
-        <td><span class="glyphicon glyphicon-pencil"></span><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><span class="glyphicon glyphicon-trash"></span><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Contact', new_contact_path %>
