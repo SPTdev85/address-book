@@ -34,7 +34,8 @@
 <div class="panel panel-default">
   <div class="panel-body profile">
     <div class="profile-image">
-      <img class="circle" src="assets/user.jpeg">
+      <%= image_tag contact.image.url(:thumb), class: "circle" %>
+      <!--<img class="circle" src="assets/user.jpeg">-->
     </div>
     <div class="profile-data">
       <div class="profile-data-name"><%= contact.fname %> <%= contact.lname %></div>
